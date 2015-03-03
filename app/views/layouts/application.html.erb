@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SvBlog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+ <%= render 'shared/navigation' %>
+<div id="main-container" class="container">
+<div class="row">
+        <div class="col-xs-12">
+          <% flash.each do |name, msg| -%>
+            <%= content_tag :div, msg, class: "alert alert-#{name}" %>
+          <% end -%>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-2">
+          <%= link_to new_blog_path, class: 'btn btn-success'  do %>
+  <i class="glyphicon glyphicon-plus"></i> New Article
+ <% end %>
+        </div>
+        <div class="col-xs-10">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>
