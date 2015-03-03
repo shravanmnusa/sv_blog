@@ -1,10 +1,13 @@
+WillPaginate.per_page = 1
+WillPaginate::ViewHelpers.pagination_options[:page_links] = false
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all.reverse
+    @blogs = Blog.paginate(page: params[:page])
+	@blogsall = Blog.all.reverse
   end
 
   # GET /blogs/1
@@ -15,6 +18,7 @@ class BlogsController < ApplicationController
   # GET /blogs/new
   def new
     @blog = Blog.new
+	@blogsall = Blog.all.reverse
   end
 
   # GET /blogs/1/edit

@@ -7,9 +7,9 @@
     <% @blogs.each do |blog| %>
         <h1><%= blog.title %></h1>
         <p><%= blog.description %></p>
-        <p>Created/updated on <%= blog.created_at %></p>
-        <td><%= link_to 'Show', blog, class: 'btn btn-primary btn-xs' %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog), class: 'btn btn-info btn-xs'  %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs'  %></td>
+        <p>Created/updated on <%= blog.created_at %><br> <br >
+        <%= link_to 'Show', blog, class: 'btn btn-primary btn-xs' %>
+        <%= link_to 'Edit', edit_blog_path(blog), class: 'btn btn-info btn-xs'  %>
+        <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs'  %></p>
     <% end %>
-<br>
+<%= will_paginate %>
